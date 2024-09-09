@@ -1,7 +1,10 @@
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
+from django.middleware.csrf import get_token
 
+def some_view(request):
+    csrf_token = get_token(request)
 
 def register(request):
     if request.method == 'POST':

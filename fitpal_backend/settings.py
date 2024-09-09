@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', 
     'fitness',
-
+    'corsheaders',
              
 ]
 MIDDLEWARE = [
@@ -52,8 +52,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    
+]
+# CORS Configuration
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # Correct: No path included
+    'http://127.0.0.1:3000',  # Add other trusted origins if needed
 ]
 
+# CSRF Trusted Origins, in case you're using CSRF
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+]
 ROOT_URLCONF = 'fitpal_backend.urls'
 
 TEMPLATES = [
