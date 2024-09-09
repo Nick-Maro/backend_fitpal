@@ -5,7 +5,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import UserSerializer
-
 # API per ottenere il profilo dell'utente autenticato
 class UserProfileView(APIView):
     permission_classes = [IsAuthenticated]
@@ -28,3 +27,4 @@ class WorkoutListCreateView(generics.ListCreateAPIView):
 class WorkoutDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Workout.objects.all()
     serializer_class = WorkoutSerializer
+    
